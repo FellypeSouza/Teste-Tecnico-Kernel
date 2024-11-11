@@ -1,22 +1,32 @@
 main{
+    max-width: 1200px;
+    margin: auto;
     margin-top: 3rem;
-    h3{
-        font-weight: 100;
-    }
     .meals{
-        display: flex;
-        justify-content: space-evenly;
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
         .meal{
+            width: 250px;
+            height: 300px;
             text-align: center;
-           /*  .mealInfo{
-                display: flex;
-                justify-content: space-evenly;
-            } */
             cursor: pointer;
+            margin: 1rem;
             .mealImage{
-                width: 400px;
-                height: 400px;
+                width: 250px;
+                height: 250px;
                 border-radius: 10px;
+            }
+        }
+        .meal:hover{
+            figcaption{
+                transition: all 250ms;
+                color: rgb(99, 98, 98);
+            }
+        }
+        .meal:not(:hover){
+            figcaption{
+                transition: all 250ms;
             }
         }
     }
