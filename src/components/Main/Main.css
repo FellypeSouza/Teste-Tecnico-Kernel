@@ -1,24 +1,21 @@
 main{
-    margin-top: 5rem;
+    margin-top: 3rem;
     h3{
         font-weight: 100;
     }
     .meals{
-        
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 50px; /* Espaçamento entre os elementos */
-        justify-content: center;
+        display: flex;
+        justify-content: space-evenly;
         .meal{
-            background-color: aqua;
-            width: 15rem;
-            height: 20rem;
-            .mealInfo{
+            text-align: center;
+           /*  .mealInfo{
                 display: flex;
                 justify-content: space-evenly;
-            }
+            } */
+            cursor: pointer;
             .mealImage{
-                width: 200px;
+                width: 400px;
+                height: 400px;
                 border-radius: 10px;
             }
         }
