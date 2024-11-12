@@ -12,12 +12,11 @@ export default function Main({ meals, carregando }){
                     {meals.length > 0 ? (
                         meals.map((meal) => (
                             <section key={meal.idMeal} className="meal">
-                            <Link to={"/mealPage/" + meal.idMeal} key={meal.idMeal}>
-                                <img className="mealImage" src={meal.strMealThumb} alt={meal.strMeal}/>
-                                <figcaption>{meal.strMeal}</figcaption>
-                                <p>Categoria: {meal.strCategory}</p>
-                            </Link>
-                                
+                                <Link to={"/mealPage/" + meal.idMeal} key={meal.idMeal}>
+                                    <img className="mealImage" src={meal.strMealThumb} alt={meal.strMeal}/>
+                                    <figcaption>{meal.strMeal}</figcaption>
+                                    <p>Categoria: {meal.strCategory}</p>
+                                </Link>                               
                             </section>
                         ))
                     ) : (

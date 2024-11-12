@@ -30,13 +30,36 @@ export default function MealPage(){
                 <p>Carregando...</p>
             ) : (
                 meal && (
-                    <section>
+                    <main>
                         <h1>{meal.strMeal}</h1>
                         <p><strong>Categoria:</strong> {meal.strCategory}</p>
                         <p><strong>Área:</strong> {meal.strArea}</p>
+                        <p>
+                            <strong>Ingredientes:</strong> 
+                            {meal.strIngredient1}
+                            {meal.strIngredient2}
+                            {meal.strIngredient3}
+                            {meal.strIngredient4}
+                            {meal.strIngredient5}
+                            {meal.strIngredient6}
+                            {meal.strIngredient7}
+                            {meal.strIngredient8}
+                            {meal.strIngredient9}
+                            {meal.strIngredient10}
+                            {meal.strIngredient11}
+                            {meal.strIngredient12}
+                            {meal.strIngredient13}
+                            {meal.strIngredient14}
+                            {meal.strIngredient15}
+                            {meal.strIngredient16}
+                            {meal.strIngredient17}
+                            {meal.strIngredient18}
+                            {meal.strIngredient19}
+                            {meal.strIngredient20}
+                        </p>
                         <p><strong>Instruções:</strong> {meal.strInstructions}</p>
                         <img src={meal.strMealThumb} alt={meal.strMeal} style={{ width: '500px', borderRadius: '8px' }} />
-                    </section>
+                    </main>
                 )
             )}
         </section>
