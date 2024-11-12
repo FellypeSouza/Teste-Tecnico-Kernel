@@ -1,6 +1,49 @@
-main{
-    text-align: center;
+@media(max-width:650px) {
+    .mealPage{
+        width: 400px;
+        .mealImage{
+            max-width: 400px;
+        }
+    }
+    
+}
+@media(max-width:445px){
+    .container{
+        .confirmation{
+            font-size: 0.5rem;
+        }
+    }
+}
+.mealPage{
+    max-width: 500px;
+    margin: auto;
+    margin-top: 4rem;
     h1{
-        font-size: 2rem;
+        font-size: 1.25rem;
+        text-align: center;
+    }
+    .mealImage{
+        width: 500px;
+        border-radius: 8px;
+    }
+    .mealInfo{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .mealIngredients{
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        line-height: 10px;
+        .ingredients{
+            p{
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    .mealInstructions{
+        text-align: start;
+        line-height: 30px;
     }
 }

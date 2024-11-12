@@ -4,9 +4,9 @@ import "./Main.css";
 
 export default function Main({ meals, carregando }){
         return (
-        <main>
+        <main className="main">
             {carregando ? (
-                <p style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>Carregando...</p>
+                <p className="confirmation" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>Carregando...</p>
             ) : (
                 <section className="meals">
                     {meals.length > 0 ? (
@@ -20,7 +20,7 @@ export default function Main({ meals, carregando }){
                             </section>
                         ))
                     ) : (
-                        <p style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>Nenhuma refeição encontrada.</p>
+                        <p className="confirmation" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>Nenhuma refeição encontrada.</p>
                     )}
                 </section>
             )}

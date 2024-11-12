@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from 'react-router-dom';
-import Nav from "../Nav/Nav";
+import ReturnNav from "../ReturnNav/ReturnNav";
 import "./MealPage.css";
 
 export default function MealPage(){
@@ -24,41 +24,45 @@ export default function MealPage(){
         fetchMealDetails();
     }, [id]);
     return(
-        <section>
-            <Nav/>
+        <section className="container">
+            <ReturnNav/>
             {carregando ? (
-                <p>Carregando...</p>
+                <p className="confirmation" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>Carregando...</p>
             ) : (
                 meal && (
-                    <main>
+                    <main className="mealPage">
                         <h1>{meal.strMeal}</h1>
-                        <p><strong>Categoria:</strong> {meal.strCategory}</p>
-                        <p><strong>Área:</strong> {meal.strArea}</p>
-                        <p>
-                            <strong>Ingredientes:</strong> 
-                            {meal.strIngredient1}
-                            {meal.strIngredient2}
-                            {meal.strIngredient3}
-                            {meal.strIngredient4}
-                            {meal.strIngredient5}
-                            {meal.strIngredient6}
-                            {meal.strIngredient7}
-                            {meal.strIngredient8}
-                            {meal.strIngredient9}
-                            {meal.strIngredient10}
-                            {meal.strIngredient11}
-                            {meal.strIngredient12}
-                            {meal.strIngredient13}
-                            {meal.strIngredient14}
-                            {meal.strIngredient15}
-                            {meal.strIngredient16}
-                            {meal.strIngredient17}
-                            {meal.strIngredient18}
-                            {meal.strIngredient19}
-                            {meal.strIngredient20}
-                        </p>
-                        <p><strong>Instruções:</strong> {meal.strInstructions}</p>
-                        <img src={meal.strMealThumb} alt={meal.strMeal} style={{ width: '500px', borderRadius: '8px' }} />
+                        <img className="mealImage" src={meal.strMealThumb} alt={meal.strMeal}/>
+                        <section className="mealInfo">
+                            <p><strong>Categoria:</strong> {meal.strCategory}</p>
+                            <p><strong>Área:</strong> {meal.strArea}</p>
+                        </section>
+                        <section className="mealIngredients">
+                            <strong>Ingredientes:</strong>
+                            <section className="ingredients">
+                                {
+                                    Array.from({ length: 20 }, (_, i) => i + 1) // Cria um array [1, 2, ..., 20]
+                                    .map((num) => {
+                                        const ingredient = meal[`strIngredient${num}`];
+                                        const measure = meal[`strMeasure${num}`];
+                                        // Verifica se o ingrediente não é null nem uma string vazia
+                                        if (ingredient && ingredient.trim() !== "") {
+                                            return (
+                                                <p key={num}>
+                                                    <img src={`https://www.themealdb.com/images/ingredients/${ingredient}.png`} width="50px" height="50px" alt={ingredient}/>
+                                                    {ingredient}, {measure}
+                                                </p>
+                                            );
+                                        }
+                                        return null; // Não renderiza se o ingrediente for inválido
+                                })}
+                            </section>    
+                        </section>
+                        <section className="mealInstructions">
+                            <p><strong>Instruções:</strong></p>
+                            <p>{meal.strInstructions}</p>
+                        </section>
+                        
                     </main>
                 )
             )}

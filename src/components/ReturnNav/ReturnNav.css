@@ -1,0 +1,15 @@
+.returnNav{
+    a{
+        color: #000;
+        background-color: #dddcdc;
+        padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+        border-radius: 20px;
+    }
+    a:hover{
+        background-color: #ffffff;
+        transition: all 250ms;
+    }
+    a:not(:hover){
+        transition: all 250ms;
+    }
+}

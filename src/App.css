@@ -11,3 +11,8 @@ a{
   text-decoration: none;
   color: #000;
 }
+@media(max-width:1200px) {
+  nav{
+      background-color: aqua;
+  }
+}

@@ -6,6 +6,7 @@ import Main from './components/Main/Main';
 function App() {
   const [meals, setMeals] = useState([]);
   const [carregando, setCarregando] = useState(false);
+
   // Função para buscar refeições por termo
   const buscarRefeicao = async (searchTerm) => {
     setCarregando(true);
@@ -20,9 +21,22 @@ function App() {
         }
     };
 
+    const buscarRefeicaoPorCategoria = async (category) => {
+      setCarregando(true);
+      try {
+          const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+          const data = await response.json();
+          setMeals(data.meals || []);
+      } catch (error) {
+          console.error("Erro ao buscar dados por categoria:", error);
+      } finally {
+          setCarregando(false);
+      }
+  };
+
   return (
     <div className="App">
-      <Nav onSearch={buscarRefeicao}/>
+      <Nav onSearch={buscarRefeicao} onSearchByCategory={buscarRefeicaoPorCategoria}/>
       <Main meals={meals} carregando={carregando}/>
     </div>
   );
