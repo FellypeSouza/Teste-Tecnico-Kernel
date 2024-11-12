@@ -1,4 +1,5 @@
-import React,{useEffect, useState} from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./Main.css";
 
 export default function Main({ meals, carregando }){
@@ -11,10 +12,12 @@ export default function Main({ meals, carregando }){
                     {meals.length > 0 ? (
                         meals.map((meal) => (
                             <section key={meal.idMeal} className="meal">
-                                <a href={"http://www.themealdb.com/api/json/v1/1/search.php?s=" + meal.strMeal} target="_blank">
+                            <Link to={"/mealPage/" + meal.idMeal} key={meal.idMeal}>
                                 <img className="mealImage" src={meal.strMealThumb} alt={meal.strMeal}/>
                                 <figcaption>{meal.strMeal}</figcaption>
-                                </a>
+                                <p>Categoria: {meal.strCategory}</p>
+                            </Link>
+                                
                             </section>
                         ))
                     ) : (

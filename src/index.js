@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
+import MealPage from './components/MealPage/MealPage';
 import reportWebVitals from './reportWebVitals';
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+        <Routes>
+            <Route Component={App} path='/' exact/>
+            <Route Component={MealPage} path='/mealPage/:id' exact/>
+        </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

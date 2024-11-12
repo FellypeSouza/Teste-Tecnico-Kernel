@@ -19,13 +19,13 @@ main{
             }
         }
         .meal:hover{
-            figcaption{
+            p,figcaption{
                 transition: all 250ms;
                 color: rgb(99, 98, 98);
             }
         }
         .meal:not(:hover){
-            figcaption{
+            p,figcaption{
                 transition: all 250ms;
             }
         }
